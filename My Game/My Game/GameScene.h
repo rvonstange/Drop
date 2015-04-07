@@ -1,0 +1,13 @@
+//
+//  GameScene.h
+//  My Game
+//
+
+//  Copyright (c) 2015 Robert von Stange. All rights reserved.
+//
+
+#import <SpriteKit/SpriteKit.h>
+
+@interface GameScene : SKScene
+
+@end
