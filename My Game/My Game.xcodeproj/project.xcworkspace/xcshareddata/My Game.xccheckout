@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C0308430-CECC-4BE9-8694-26F2626C7C41</string>
+	<key>IDESourceControlProjectName</key>
+	<string>My Game</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>83EA6F9CDD62CFB2CE733558FC71A4F78289A2E9</key>
+		<string>https://github.com/rvonstange/Drop.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>My Game/My Game.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>83EA6F9CDD62CFB2CE733558FC71A4F78289A2E9</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rvonstange/Drop.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>83EA6F9CDD62CFB2CE733558FC71A4F78289A2E9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>83EA6F9CDD62CFB2CE733558FC71A4F78289A2E9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Drop</string>
+		</dict>
+	</array>
+</dict>
+</plist>

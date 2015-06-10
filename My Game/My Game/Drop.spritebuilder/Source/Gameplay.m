@@ -46,16 +46,16 @@
 
 -(void)drop {
 
-    //_mainBall.physicsBody.dynamic = YES;
+    _mainBall.physicsBody.dynamic = YES;
 }
 
 // called on every touch in this scene
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     CGPoint touchLocation = [touch locationInNode:_itemsBox];
     
-    if (CGRectContainsPoint([_log boundingBox], touchLocation))
+    if (CGRectContainsPoint([_ballTwo boundingBox], touchLocation))
     {
-        _log.position = touchLocation;
+        _ballTwo.position = touchLocation;
     }
 //
 //        // create a penguin from the ccb-file
@@ -75,8 +75,8 @@
 }
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     // whenever touches move, update the position of the mouseJointNode to the touch position
-    CGPoint touchLocation = [touch locationInNode:_itemsBox];
-    _itemsBox.position = touchLocation;
+    //CGPoint touchLocation = [touch locationInNode:_levelNode];
+    //_levelNode.position = touchLocation;
 }
 
 
