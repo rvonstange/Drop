@@ -20,7 +20,7 @@
     StationaryBall *_ballOne;
     StationaryBall *_ballTwo;
     Ball *_mainBall;
-    CCDragSprite *_log;
+    Log *_log;
     CCNode *_itemsBox;
     CCNode *_levelNode;
     CCNode *_items;
@@ -48,6 +48,7 @@
 
 -(void)drop {
     _mainBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
+    CCLOG(@"Drop");
 }
 
 

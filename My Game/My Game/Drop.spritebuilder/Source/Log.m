@@ -12,16 +12,17 @@
 
 - (void) touchBegan: (CCTouch *)touch withEvent:(CCTouchEvent *)event {
     
-    CGPoint location = [touch locationInNode: self.node];
-    
-//    if (location.x >= self.node. && location.x <= img.x && location.y >= img.y && location.y <= img.y) {
-    if (CGRectContainsPoint([self.node, boundingBox], location)) {
-        CG
-        self.node.position = location;
-        
+    CCLOG(@"TOUCH");
+//    CGPoint location = [touch locationInNode: self.node];
+//    
+////    if (location.x >= self.node. && location.x <= img.x && location.y >= img.y && location.y <= img.y) {
+//    if (CGRectContainsPoint([self.node, boundingBox], location)) {
+//        CG
+//        self.node.position = location;
+//        
     }
     
     
-}
+//}
 
 @end
