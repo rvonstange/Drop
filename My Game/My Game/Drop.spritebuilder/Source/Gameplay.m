@@ -23,16 +23,22 @@
     Log *_log;
     CCNode *_itemsBox;
     CCNode *_levelNode;
+    CCNode *_contentNode;
     CCNode *_items;
+    CCNode *_temp;
 }
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
-    CCScene *level = [CCBReader loadAsScene:@"Levels/Level_1"];
-    [_levelNode addChild:level];
+    CCScene *levelScene = [CCBReader loadAsScene:@"Levels/Level_1"];
+    [_levelNode addChild:levelScene];
     
+    //Grab all the items inside of the items box
+    CCNode *level = levelScene.children[0];
+    _items = level.children[1];
+
     // visualize physics bodies & joints
     //_physicsNode.debugDraw = TRUE;
     
@@ -40,6 +46,28 @@
     
 }
 
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    
+    CGPoint touchLocation = [touch locationInNode:_contentNode];
+    for (int i = 0; i < _items.children.count; i++) {
+        _temp = _items.children[i];
+        if (CGRectContainsPoint([_temp boundingBox], touchLocation)) {
+            _temp.position = touchLocation;
+            break;
+        }
+    }
+}
+
+- (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    // whenever touches move, update the position of the mouseJointNode to the touch position
+    CGPoint touchLocation = [touch locationInNode:_contentNode];
+    _temp.position = touchLocation;
+}
+
+-(void) touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    
+    
+}
 
 - (void)retry {
     // reload this level

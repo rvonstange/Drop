@@ -10,6 +10,7 @@
 
 @implementation Log
 
+
 - (void) touchBegan: (CCTouch *)touch withEvent:(CCTouchEvent *)event {
     
     CCLOG(@"TOUCH");
