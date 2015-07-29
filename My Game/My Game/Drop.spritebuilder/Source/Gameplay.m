@@ -67,18 +67,20 @@
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair stationaryBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
 
-        [[_physicsNode space] addPostStepBlock:^{
-            [self ballCollision:nodeA];
-        } key:nodeA];
+    
+    [[_physicsNode space] addPostStepBlock:^{
+        [self ballCollision:nodeA];
+    } key:nodeA];
 
 }
 
-- (void)ballCollision:(CCNode *)ball {
+- (void)ballCollision:(CCNode *)stationaryBall {
     
     CCNode *movingBall = (CCNode *)[CCBReader load:@"Ball"];
-    movingBall.position = ball.position;
-    [ball.parent addChild:movingBall];
-    [ball removeFromParent];
+    movingBall.position = stationaryBall.position;
+    movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
+    [stationaryBall.parent addChild:movingBall];
+    [stationaryBall removeFromParent];
     
 }
 

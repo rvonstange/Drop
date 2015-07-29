@@ -10,4 +10,8 @@
 
 @implementation StationaryBall
 
+- (void)didLoadFromCCB {
+    self.physicsBody.collisionType = @"stationaryBall";
+}
+
 @end
