@@ -17,10 +17,7 @@
 
 
     CCPhysicsNode *_physicsNode;
-    StationaryBall *_ballOne;
-    StationaryBall *_ballTwo;
     Ball *_mainBall;
-    Log *_log;
     CCNode *_itemsBox;
     CCNode *_levelNode;
     CCNode *_contentNode;
@@ -42,7 +39,7 @@
     // visualize physics bodies & joints
     //_physicsNode.debugDraw = TRUE;
     
-    //_physicsNode.collisionDelegate = self;
+    _physicsNode.collisionDelegate = self;
     
 }
 
@@ -66,6 +63,22 @@
 
 -(void) touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     
+}
+
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair stationaryBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+
+        [[_physicsNode space] addPostStepBlock:^{
+            [self ballCollision:nodeA];
+        } key:nodeA];
+
+}
+
+- (void)ballCollision:(CCNode *)ball {
+    
+    CCNode *movingBall = (CCNode *)[CCBReader load:@"Ball"];
+    movingBall.position = ball.position;
+    [ball.parent addChild:movingBall];
+    [ball removeFromParent];
     
 }
 

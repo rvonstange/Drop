@@ -94,7 +94,6 @@
 		B78A0B10198AF87200C63841 /* Published-Android in Resources */ = {isa = PBXBuildFile; fileRef = B78A0B0F198AF87200C63841 /* Published-Android */; };
 		D43E527D1A9D2E430014376C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = D43E527C1A9D2E430014376C /* Ball.m */; };
 		D43E52811A9D350F0014376C /* StationaryBall.m in Sources */ = {isa = PBXBuildFile; fileRef = D43E52801A9D350F0014376C /* StationaryBall.m */; };
-		D43E52841A9D351E0014376C /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D43E52831A9D351E0014376C /* Log.m */; };
 		D4DB0BE71A9C7E69008CFBF6 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */; };
 /* End PBXBuildFile section */
 
@@ -223,8 +222,6 @@
 		D43E527C1A9D2E430014376C /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ball.m; path = Source/Ball.m; sourceTree = "<group>"; };
 		D43E527F1A9D350F0014376C /* StationaryBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StationaryBall.h; path = Source/StationaryBall.h; sourceTree = "<group>"; };
 		D43E52801A9D350F0014376C /* StationaryBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StationaryBall.m; path = Source/StationaryBall.m; sourceTree = "<group>"; };
-		D43E52821A9D351E0014376C /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Source/Log.h; sourceTree = "<group>"; };
-		D43E52831A9D351E0014376C /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Log.m; path = Source/Log.m; sourceTree = "<group>"; };
 		D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 		D4DB0BE81A9C7E89008CFBF6 /* Gameplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gameplay.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -462,8 +459,6 @@
 				D43E527C1A9D2E430014376C /* Ball.m */,
 				D43E527F1A9D350F0014376C /* StationaryBall.h */,
 				D43E52801A9D350F0014376C /* StationaryBall.m */,
-				D43E52821A9D351E0014376C /* Log.h */,
-				D43E52831A9D351E0014376C /* Log.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 				D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */,
 				D4DB0BE81A9C7E89008CFBF6 /* Gameplay.h */,
@@ -865,7 +860,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D43E52841A9D351E0014376C /* Log.m in Sources */,
 				D43E52811A9D350F0014376C /* StationaryBall.m in Sources */,
 				D43E527D1A9D2E430014376C /* Ball.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
