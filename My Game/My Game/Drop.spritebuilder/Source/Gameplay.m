@@ -23,6 +23,8 @@
     CCNode *_contentNode;
     CCNode *_items;
     CCNode *_temp;
+    CCNode *_sballs;
+    bool dropClicked;
 }
 
 // is called when CCB file has completed loading
@@ -35,30 +37,37 @@
     //Grab all the items inside of the items box
     CCNode *level = levelScene.children[0];
     _items = level.children[1];
+    _sballs = level.children[0];
 
     // visualize physics bodies & joints
     //_physicsNode.debugDraw = TRUE;
     
     _physicsNode.collisionDelegate = self;
     
+    dropClicked = false;
 }
+
 
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     
-    CGPoint touchLocation = [touch locationInNode:_contentNode];
-    for (int i = 0; i < _items.children.count; i++) {
-        _temp = _items.children[i];
-        if (CGRectContainsPoint([_temp boundingBox], touchLocation)) {
-            _temp.position = touchLocation;
-            break;
+    if (dropClicked == false){
+        CGPoint touchLocation = [touch locationInNode:_contentNode];
+        for (int i = 0; i < _items.children.count; i++) {
+            _temp = _items.children[i];
+            if (    CGRectContainsPoint([_temp boundingBox], touchLocation)) {
+                _temp.position = touchLocation;
+                break;
+            }
         }
     }
 }
 
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     // whenever touches move, update the position of the mouseJointNode to the touch position
-    CGPoint touchLocation = [touch locationInNode:_contentNode];
-    _temp.position = touchLocation;
+    if (dropClicked == false){
+        CGPoint touchLocation = [touch locationInNode:_contentNode];
+        _temp.position = touchLocation;
+    }
 }
 
 -(void) touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
@@ -71,26 +80,38 @@
     [[_physicsNode space] addPostStepBlock:^{
         [self ballCollision:nodeA];
     } key:nodeA];
-
+    
 }
 
 - (void)ballCollision:(CCNode *)stationaryBall {
     
-    CCNode *movingBall = (CCNode *)[CCBReader load:@"Ball"];
-    movingBall.position = stationaryBall.position;
+    Ball *movingBall = (Ball *)[CCBReader load:@"Ball"];
     movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
-    [stationaryBall.parent addChild:movingBall];
+    movingBall.position = stationaryBall.position;
+    [_mainBall.parent addChild:movingBall];
     [stationaryBall removeFromParent];
+    //CCLOG(@"mBP:%@ sBP:%@",_mainBall.parent.name, movingBall.parent.name);
+    //CCLOG(@"mBPy:%f sBPy:%f",movingBall.position.y, stationaryBall.position.y);
+    //CCLOG(@"mBPx:%f sBPx:%f",movingBall.position.x, stationaryBall.position.x);
+    if (_sballs.children.count == 0) {
+        [self levelComplete];
+    }
+    
+}
+
+- (void)levelComplete {
     
 }
 
 - (void)retry {
     // reload this level
+    dropClicked = false;
     [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
 }
 
 -(void)drop {
     _mainBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
+    dropClicked = true;
     CCLOG(@"Drop");
 }
 
