@@ -112,7 +112,6 @@
 -(void)drop {
     _mainBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
     dropClicked = true;
-    CCLOG(@"Drop");
 }
 
 
