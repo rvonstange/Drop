@@ -100,6 +100,8 @@
 }
 
 - (void)levelComplete {
+    CCScene *moveToNextLevel = [CCBReader loadAsScene:@"MoveToNextLevel"];
+    [_contentNode addChild:moveToNextLevel];
     
 }
 
