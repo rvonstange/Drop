@@ -24,6 +24,7 @@
     CCNode *_temp;
     CCNode *_sballs;
     bool dropClicked;
+    int currentLevel;
 }
 
 // is called when CCB file has completed loading
