@@ -186,8 +186,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.36250001192092896</real>
-							<real>0.086197219789028168</real>
+							<real>0.33125001192092896</real>
+							<real>0.11619718372821808</real>
 							<integer>1</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -211,8 +211,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.0828566551208496</real>
-							<real>1.0532000064849854</real>
+							<real>1</real>
+							<real>1</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -236,7 +236,7 @@
 						<key>value</key>
 						<array>
 							<real>40</real>
-							<real>40</real>
+							<real>42</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -291,9 +291,9 @@
 						<string>Color3</string>
 						<key>value</key>
 						<array>
-							<real>0.60000002384185791</real>
-							<real>0.60000002384185791</real>
-							<real>0.60000002384185791</real>
+							<real>0.40000000596046448</real>
+							<real>0.40000000596046448</real>
+							<real>0.40000000596046448</real>
 							<real>1</real>
 						</array>
 					</dict>
@@ -306,6 +306,19 @@
 						<array>
 							<string></string>
 							<string>ccbResources/ccbButtonHighlighted.png</string>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundColor|Highlighted</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<real>0.60000002384185791</real>
+							<real>0.60000002384185791</real>
+							<real>0.60000002384185791</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -365,7 +378,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>captain-falcon_mecha/Mecha.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -374,7 +387,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>17</real>
+							<real>30</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -401,7 +414,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>10</real>
+							<real>26</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -412,7 +425,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>16</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -525,8 +538,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>240</real>
-							<real>539</real>
+							<real>264</real>
+							<real>537</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -575,7 +588,7 @@
 						<key>value</key>
 						<array>
 							<real>40</real>
-							<real>40</real>
+							<real>42</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -625,6 +638,19 @@
 					</dict>
 					<dict>
 						<key>name</key>
+						<string>backgroundColor|Normal</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<real>0.40000000596046448</real>
+							<real>0.40000000596046448</real>
+							<real>0.40000000596046448</real>
+							<real>1</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>backgroundSpriteFrame|Highlighted</string>
 						<key>type</key>
 						<string>SpriteFrame</string>
@@ -632,6 +658,19 @@
 						<array>
 							<string></string>
 							<string>ccbResources/ccbButtonHighlighted.png</string>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>backgroundColor|Highlighted</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<real>0.60000002384185791</real>
+							<real>0.60000002384185791</real>
+							<real>0.60000002384185791</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -691,7 +730,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>captain-falcon_mecha/Mecha.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -700,7 +739,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>17</real>
+							<real>30</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -727,7 +766,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>10</real>
+							<real>26</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -738,7 +777,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>15</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -1009,8 +1048,6 @@
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>
@@ -1125,9 +1162,9 @@
 						<key>value</key>
 						<array>
 							<real>1</real>
-							<real>1</real>
+							<real>568</real>
 							<integer>2</integer>
-							<integer>2</integer>
+							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>

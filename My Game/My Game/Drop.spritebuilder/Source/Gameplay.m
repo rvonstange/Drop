@@ -10,8 +10,7 @@
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "StationaryBall.h"
 #import "Ball.h"
-#import "Log.h"
-#import "CCDragSprite.h"
+
 
 @implementation Gameplay {
 
@@ -38,9 +37,6 @@
     CCNode *level = levelScene.children[0];
     _items = level.children[1];
     _sballs = level.children[0];
-
-    // visualize physics bodies & joints
-    //_physicsNode.debugDraw = TRUE;
     
     _physicsNode.collisionDelegate = self;
     
@@ -100,9 +96,9 @@
 }
 
 - (void)levelComplete {
+    self.userInteractionEnabled = FALSE;
     CCScene *moveToNextLevel = [CCBReader loadAsScene:@"MoveToNextLevel"];
     [_contentNode addChild:moveToNextLevel];
-    
 }
 
 - (void)retry {
@@ -115,9 +111,6 @@
     _mainBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
     dropClicked = true;
 }
-
-
-
 
 
 @end
