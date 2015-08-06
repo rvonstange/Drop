@@ -62,23 +62,30 @@
 }
 
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    // whenever touches move, update the position of the mouseJointNode to the touch position
+    // whenever touches move, update the position of the item being dragged to the touch position
     if (dropClicked == false){
         CGPoint touchLocation = [touch locationInNode:_contentNode];
         _temp.position = touchLocation;
-        for (int i = 0; i <_items.children.count; i++){
-            if (_temp != _items.children[i]) {
-                original = _temp.position;
-                if (CGRectIntersectsRect([_items.children[i] boundingBox], [_temp boundingBox])) {
-                    touchLocation = original;
-                    break;
-                }
-            }
-        }
     }
 }
 
--(void) touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+-(void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    for (int i = 0; i <_items.children.count; i++){
+        if (_temp != _items.children[i]) {
+            if (CGRectIntersectsRect([_items.children[i] boundingBox], [_temp boundingBox])) {
+                _temp.position = original;
+                break;
+            }
+        }
+    }
+    //Currently items can be placed on top of stationary balls. So far have not been sucessful in stopping this from occuring.
+/*    for (int j = 0; j < _sballs.children.count; j++) {
+        CCNode * _tempBall = _sballs.children[j];
+        if (CGRectIntersectsRect([_tempBall boundingBox], [_temp boundingBox])) {
+            _temp.position = original;
+            break;
+        }
+    }*/
 
 }
 
