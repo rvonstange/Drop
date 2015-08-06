@@ -120,20 +120,16 @@ static int levelNum;
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair ground:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     
-    CCLOG(@"Hit the ground");
     [[_physicsNode space] addPostStepBlock:^{
         [self ballRemoval:nodeB];
-    } key:nodeB];
+    } key:nodeA];
     
 }
 
 -(void)ballRemoval:(CCNode *)movingBall {
-    bool mainBallGone = false;
-    if (movingBall == _mainBall) {
-        mainBallGone = true;
-    }
+    CCNode *mainBallParent = _mainBall.parent;
     [movingBall removeFromParent];
-    if (mainBallGone == false) {
+    if (mainBallParent.children.count == 1) {
         return;
     }
     else {

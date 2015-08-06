@@ -78,6 +78,13 @@
 			<key>previewFolderHidden</key>
 			<true/>
 		</dict>
+		<key>Random pictures</key>
+		<dict>
+			<key>isDirty</key>
+			<true/>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
 		<key>Sprites</key>
 		<dict/>
 		<key>ccbResources</key>
@@ -162,7 +169,19 @@
 			<key>tabletScale</key>
 			<integer>1</integer>
 		</dict>
+		<key>explosion</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
 		<key>object_physics-game-ice</key>
+		<dict>
+			<key>isDirty</key>
+			<true/>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>object_physics-game-wood</key>
 		<dict>
 			<key>isSmartSpriteSheet</key>
 			<true/>
