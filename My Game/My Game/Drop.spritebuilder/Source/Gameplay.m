@@ -11,6 +11,7 @@
 #import "StationaryBall.h"
 #import "Ball.h"
 
+static NSString *levelNum;
 
 @implementation Gameplay {
 
@@ -25,14 +26,22 @@
     CCNode *_sballs;
     CGPoint original;
     bool dropClicked;
-    int currentLevel;
+    NSString *currentLevel;
+    
 }
+
++(void)setLevel: (NSString*) str {
+    levelNum = str;
+}
+
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
-    CCScene *levelScene = [CCBReader loadAsScene:@"Levels/Level_1"];
+    currentLevel = [@"Levels/Level_" stringByAppendingString:levelNum];
+    CCLOG(@"%@", currentLevel);
+    CCScene *levelScene = [CCBReader loadAsScene:currentLevel];
     [_levelNode addChild:levelScene];
     
     //Grab all the items inside of the items box

@@ -468,13 +468,13 @@
 			isa = PBXGroup;
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
+				D352B48019EC608A00829775 /* MetalShaders */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
 				D43E527B1A9D2E430014376C /* Ball.h */,
 				D43E527C1A9D2E430014376C /* Ball.m */,
 				D43E527F1A9D350F0014376C /* StationaryBall.h */,
 				D43E52801A9D350F0014376C /* StationaryBall.m */,
-				D352B48019EC608A00829775 /* MetalShaders */,
 				D4D57B021B72B49800C914A7 /* Ground.h */,
 				D4D57B031B72B49800C914A7 /* Ground.m */,
 				D4DB0BE81A9C7E89008CFBF6 /* Gameplay.h */,
