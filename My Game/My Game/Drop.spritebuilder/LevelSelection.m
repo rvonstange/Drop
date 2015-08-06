@@ -36,7 +36,7 @@
 }
 
 - (void)back {
-    CCScene *mainScene = [CCBReader loadAsScene:@"Gameplay"];
+    CCScene *mainScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:mainScene];
     
 }
@@ -50,22 +50,21 @@
 
 -(void) touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     
-    CGPoint touchLocation = [touch locationInNode: _container ];
-
+    CGPoint touchLocation = [touch locationInNode: _box ];
     for (int i = 0; i < _box.children.count; i++) {
         CCNode *temp = _box.children[i];
         for (int j = 0; j <temp.children.count; j++) {
-//            CCNode *levelNumber = temp.children[j];
-            if (CGRectContainsPoint([_16 boundingBox], touchLocation)) {
-                CCLOG(@"%@", temp.children[j]);
-                CCLOG(@"%lu", temp.children.count);
-                CCLOG(@"Hello");
+            CCNode *temp2 = temp.children[j];
+            CGFloat width = [temp2 boundingBox].size.width;
+            CGFloat height = [temp2 boundingBox].size.height;
+            CGFloat x = [temp2 boundingBox].origin.x;
+            CGFloat y = i*74.0;
+            if (CGRectContainsPoint(CGRectMake(x, y, width, height), touchLocation)) {
+                CCLOG(@"%@", temp2);
 
             }
         }
     }
-
-    
     
 }
 
