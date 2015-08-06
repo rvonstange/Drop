@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>34</integer>
+	<integer>38</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1055,8 +1055,8 @@
 									<key>points</key>
 									<array>
 										<array>
-											<real>319.00418090820312</real>
-											<real>115.82130432128906</real>
+											<real>999.7440185546875</real>
+											<real>114.04651641845703</real>
 										</array>
 										<array>
 											<real>1.0856289863586426</real>
@@ -1067,16 +1067,16 @@
 											<real>-0.9843984842300415</real>
 										</array>
 										<array>
-											<real>321.00369262695312</real>
-											<real>0.85506147146224976</real>
+											<real>1007.741943359375</real>
+											<real>-2.7591898441314697</real>
 										</array>
 									</array>
 									<key>polygons</key>
 									<array>
 										<array>
 											<array>
-												<real>319.00418090820312</real>
-												<real>115.82130432128906</real>
+												<real>999.7440185546875</real>
+												<real>114.04651641845703</real>
 											</array>
 											<array>
 												<real>1.0856289863586426</real>
@@ -1087,8 +1087,8 @@
 												<real>-0.9843984842300415</real>
 											</array>
 											<array>
-												<real>321.00369262695312</real>
-												<real>0.85506147146224976</real>
+												<real>1007.741943359375</real>
+												<real>-2.7591898441314697</real>
 											</array>
 										</array>
 									</array>
@@ -1110,7 +1110,7 @@
 										<string>Position</string>
 										<key>value</key>
 										<array>
-											<real>0.0</real>
+											<real>-344</real>
 											<real>0.0</real>
 											<integer>0</integer>
 											<integer>0</integer>
@@ -1124,7 +1124,7 @@
 										<string>Size</string>
 										<key>value</key>
 										<array>
-											<real>1</real>
+											<real>3</real>
 											<real>0.25</real>
 											<integer>2</integer>
 											<integer>2</integer>
@@ -1192,6 +1192,8 @@
 										</array>
 									</dict>
 								</array>
+								<key>selected</key>
+								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>

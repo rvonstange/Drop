@@ -62,7 +62,8 @@
             CGFloat x = [temp2 boundingBox].origin.x;
             CGFloat y = i*74.0;
             if (CGRectContainsPoint(CGRectMake(x, y, width, height), touchLocation)) {
-                [Gameplay setLevel:temp2.name];
+                NSInteger number = [temp2.name integerValue];
+                [Gameplay setLevel: (int)number];
                 CCScene *gamePlay = [CCBReader loadAsScene:@"Gameplay"];
                 [[CCDirector sharedDirector] replaceScene:gamePlay];
 

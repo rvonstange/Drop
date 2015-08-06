@@ -11,7 +11,7 @@
 #import "StationaryBall.h"
 #import "Ball.h"
 
-static NSString *levelNum;
+static int levelNum;
 
 @implementation Gameplay {
 
@@ -30,8 +30,13 @@ static NSString *levelNum;
     
 }
 
-+(void)setLevel: (NSString*) str {
-    levelNum = str;
+//used to set the Level Number from other classes
++(void)setLevel: (int) num {
+    levelNum = num;
+}
+
++(int)getLevel {
+    return levelNum;
 }
 
 
@@ -39,10 +44,12 @@ static NSString *levelNum;
 - (void)didLoadFromCCB {
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
-    currentLevel = [@"Levels/Level_" stringByAppendingString:levelNum];
-    CCLOG(@"%@", currentLevel);
+    NSString* tempString = [NSString stringWithFormat:@"%i",levelNum];
+    //Updates the Gameplay to reflect the new level
+    currentLevel = [@"Levels/Level_" stringByAppendingString: tempString];
     CCScene *levelScene = [CCBReader loadAsScene:currentLevel];
     [_levelNode addChild:levelScene];
+    
     
     //Grab all the items inside of the items box
     CCNode *level = levelScene.children[0];
@@ -92,13 +99,13 @@ static NSString *levelNum;
             _temp.position = original;
     }
     //Currently items can be placed on top of stationary balls. So far have not been sucessful in stopping this from occuring.
-/*    for (int j = 0; j < _sballs.children.count; j++) {
+    for (int j = 0; j < _sballs.children.count; j++) {
         CCNode * _tempBall = _sballs.children[j];
         if (CGRectIntersectsRect([_tempBall boundingBox], [_temp boundingBox])) {
             _temp.position = original;
             break;
         }
-    }*/
+    }
 
 }
 
@@ -113,7 +120,7 @@ static NSString *levelNum;
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair ground:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     
-    
+    CCLOG(@"Hit the ground");
     [[_physicsNode space] addPostStepBlock:^{
         [self ballRemoval:nodeB];
     } key:nodeB];

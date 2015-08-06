@@ -7,6 +7,7 @@
 //
 
 #import "MoveToNextLevel.h"
+#import "Gameplay.h"
 
 @implementation MoveToNextLevel
 
@@ -15,7 +16,11 @@
     [[CCDirector sharedDirector] replaceScene:mainScene];
 }
 - (void)nextLevel {
-    //Honestly Have no idea as of right now 
+    int newLevel = [Gameplay getLevel] + 1;
+    [Gameplay setLevel: newLevel];
+    CCScene *gamePlay = [CCBReader loadAsScene:@"Gameplay"];
+    [[CCDirector sharedDirector] replaceScene:gamePlay];
+    
 }
 
 
