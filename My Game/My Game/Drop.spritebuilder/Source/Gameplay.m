@@ -23,6 +23,7 @@
     CCNode *_items;
     CCNode *_temp;
     CCNode *_sballs;
+    CGPoint original;
     bool dropClicked;
     int currentLevel;
 }
@@ -49,6 +50,7 @@
     
     if (dropClicked == false){
         CGPoint touchLocation = [touch locationInNode:_contentNode];
+        original = touchLocation;
         for (int i = 0; i < _items.children.count; i++) {
             _temp = _items.children[i];
             if (    CGRectContainsPoint([_temp boundingBox], touchLocation)) {
@@ -64,11 +66,20 @@
     if (dropClicked == false){
         CGPoint touchLocation = [touch locationInNode:_contentNode];
         _temp.position = touchLocation;
+        for (int i = 0; i <_items.children.count; i++){
+            if (_temp != _items.children[i]) {
+                original = _temp.position;
+                if (CGRectIntersectsRect([_items.children[i] boundingBox], [_temp boundingBox])) {
+                    touchLocation = original;
+                    break;
+                }
+            }
+        }
     }
 }
 
 -(void) touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    
+
 }
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair stationaryBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
@@ -80,17 +91,64 @@
     
 }
 
-- (void)ballCollision:(CCNode *)stationaryBall {
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair ground:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     
+    
+    [[_physicsNode space] addPostStepBlock:^{
+        [self ballRemoval:nodeB];
+    } key:nodeB];
+    
+}
+
+-(void)ballRemoval:(CCNode *)movingBall {
+    bool mainBallGone = false;
+    if (movingBall == _mainBall) {
+        mainBallGone = true;
+    }
+    [movingBall removeFromParent];
+    if (mainBallGone == false) {
+        return;
+    }
+    else {
+        bool noMovingBallsLeft = true;
+        bool noStationaryBallsLeft = true;
+        for (int i = 0; i < _sballs.children.count; i++) {
+            CCNode *temp = _sballs.children[i];
+            if (temp.physicsBody.type == CCPhysicsBodyTypeDynamic) {
+                noMovingBallsLeft = false;
+            }
+            if (temp.physicsBody.type == CCPhysicsBodyTypeStatic) {
+                noStationaryBallsLeft = false;
+            }
+        }
+        if (noMovingBallsLeft && !noStationaryBallsLeft) {
+            [self gameOver];
+        }
+    }
+}
+
+- (void)gameOver {
+    self.userInteractionEnabled = FALSE;
+    CCScene *gameOver = [CCBReader loadAsScene:@"GameOverScene"];
+    [_contentNode addChild:gameOver];
+}
+
+
+
+- (void)ballCollision:(CCNode *)stationaryBall {
+    bool noBallsLeft = true;
     Ball *movingBall = (Ball *)[CCBReader load:@"Ball"];
     movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
     movingBall.position = stationaryBall.position;
-    [_mainBall.parent addChild:movingBall];
+    [stationaryBall.parent addChild:movingBall];
     [stationaryBall removeFromParent];
-    //CCLOG(@"mBP:%@ sBP:%@",_mainBall.parent.name, movingBall.parent.name);
-    //CCLOG(@"mBPy:%f sBPy:%f",movingBall.position.y, stationaryBall.position.y);
-    //CCLOG(@"mBPx:%f sBPx:%f",movingBall.position.x, stationaryBall.position.x);
-    if (_sballs.children.count == 0) {
+    for (int i = 0; i < _sballs.children.count; i++) {
+        CCNode *temp = _sballs.children[i];
+        if (temp.physicsBody.type == CCPhysicsBodyTypeStatic) {
+            noBallsLeft = false;
+        }
+    }
+    if (noBallsLeft) {
         [self levelComplete];
     }
     

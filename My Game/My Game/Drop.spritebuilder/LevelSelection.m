@@ -36,7 +36,7 @@
 }
 
 - (void)back {
-    CCScene *mainScene = [CCBReader loadAsScene:@"MainScene"];
+    CCScene *mainScene = [CCBReader loadAsScene:@"Gameplay"];
     [[CCDirector sharedDirector] replaceScene:mainScene];
     
 }

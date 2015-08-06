@@ -1085,6 +1085,37 @@
 			<dict>
 				<key>UUID</key>
 				<integer>18</integer>
+				<key>animatedProperties</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>visible</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>0</integer>
+									</dict>
+									<key>name</key>
+									<string>visible</string>
+									<key>time</key>
+									<real>1.0333333015441895</real>
+									<key>type</key>
+									<integer>1</integer>
+									<key>value</key>
+									<true/>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>visible</string>
+							<key>type</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+				</dict>
 				<key>baseClass</key>
 				<string>CCNodeColor</string>
 				<key>children</key>
@@ -1099,6 +1130,16 @@
 				<integer>1</integer>
 				<key>properties</key>
 				<array>
+					<dict>
+						<key>baseValue</key>
+						<integer>1</integer>
+						<key>name</key>
+						<string>visible</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<true/>
+					</dict>
 					<dict>
 						<key>name</key>
 						<string>name</string>
@@ -1181,6 +1222,8 @@
 					</dict>
 				</array>
 				<key>selected</key>
+				<true/>
+				<key>seqExpanded</key>
 				<true/>
 			</dict>
 			<dict>
@@ -1348,7 +1391,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>1</real>
+				<real>0.68888884782791138</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -1360,7 +1403,7 @@
 					<real>1</real>
 					<real>1</real>
 					<real>1</real>
-					<real>1</real>
+					<real>0.68888884782791138</real>
 				</array>
 			</dict>
 			<dict>
@@ -1427,7 +1470,7 @@
 			<key>offset</key>
 			<real>0.29964685440063477</real>
 			<key>position</key>
-			<real>7.1666665077209473</real>
+			<real>1.0333333015441895</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

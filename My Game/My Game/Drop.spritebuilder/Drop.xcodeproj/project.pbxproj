@@ -97,6 +97,8 @@
 		D4D57AFB1B71A50400C914A7 /* MoveToNextLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57AFA1B71A50400C914A7 /* MoveToNextLevel.m */; };
 		D4D57AFE1B71A56700C914A7 /* Instructions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57AFD1B71A56700C914A7 /* Instructions.m */; };
 		D4D57B011B71BC3400C914A7 /* LevelSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57B001B71BC3400C914A7 /* LevelSelection.m */; };
+		D4D57B041B72B49800C914A7 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57B031B72B49800C914A7 /* Ground.m */; };
+		D4D57B071B72E7C500C914A7 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57B061B72E7C500C914A7 /* GameOver.m */; };
 		D4DB0BE71A9C7E69008CFBF6 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */; };
 /* End PBXBuildFile section */
 
@@ -231,6 +233,10 @@
 		D4D57AFD1B71A56700C914A7 /* Instructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instructions.m; sourceTree = "<group>"; };
 		D4D57AFF1B71BC3400C914A7 /* LevelSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelection.h; sourceTree = "<group>"; };
 		D4D57B001B71BC3400C914A7 /* LevelSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelection.m; sourceTree = "<group>"; };
+		D4D57B021B72B49800C914A7 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
+		D4D57B031B72B49800C914A7 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ground.m; sourceTree = "<group>"; };
+		D4D57B051B72E7C500C914A7 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		D4D57B061B72E7C500C914A7 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 		D4DB0BE81A9C7E89008CFBF6 /* Gameplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gameplay.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -469,10 +475,14 @@
 				D43E527F1A9D350F0014376C /* StationaryBall.h */,
 				D43E52801A9D350F0014376C /* StationaryBall.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
-				D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */,
+				D4D57B021B72B49800C914A7 /* Ground.h */,
+				D4D57B031B72B49800C914A7 /* Ground.m */,
 				D4DB0BE81A9C7E89008CFBF6 /* Gameplay.h */,
+				D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */,
 				D4D57AF91B71A50400C914A7 /* MoveToNextLevel.h */,
 				D4D57AFA1B71A50400C914A7 /* MoveToNextLevel.m */,
+				D4D57B051B72E7C500C914A7 /* GameOver.h */,
+				D4D57B061B72E7C500C914A7 /* GameOver.m */,
 				D4D57AFF1B71BC3400C914A7 /* LevelSelection.h */,
 				D4D57B001B71BC3400C914A7 /* LevelSelection.m */,
 				D4D57AFC1B71A56700C914A7 /* Instructions.h */,
@@ -881,9 +891,11 @@
 				D43E527D1A9D2E430014376C /* Ball.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				D4DB0BE71A9C7E69008CFBF6 /* Gameplay.m in Sources */,
+				D4D57B041B72B49800C914A7 /* Ground.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				D4D57AFE1B71A56700C914A7 /* Instructions.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				D4D57B071B72E7C500C914A7 /* GameOver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
