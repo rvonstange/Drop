@@ -78,6 +78,10 @@
             }
         }
     }
+    if (!CGRectContainsRect([_levelNode boundingBox], [_temp boundingBox])) {
+    
+            _temp.position = original;
+    }
     //Currently items can be placed on top of stationary balls. So far have not been sucessful in stopping this from occuring.
 /*    for (int j = 0; j < _sballs.children.count; j++) {
         CCNode * _tempBall = _sballs.children[j];
