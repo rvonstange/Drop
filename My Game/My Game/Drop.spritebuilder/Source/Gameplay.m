@@ -24,6 +24,7 @@ static int levelNum;
     CCNode *_items;
     CCNode *_temp;
     CCNode *_sballs;
+    CCNode *_alreadyPlaced;
     CCNode *_dynamicItems;
     CGPoint original;
     bool dropClicked;
@@ -56,6 +57,7 @@ static int levelNum;
     CCNode *level = levelScene.children[0];
     _items = level.children[1];
     _sballs = level.children[0];
+    _alreadyPlaced = level.children[2];
     if (level.children.count > 3) {
         _dynamicItems = level.children[3];
     }
@@ -181,6 +183,9 @@ static int levelNum;
 
 -(void)ballRemoval:(CCNode *)movingBall {
         CCNode *mainBallParent = _mainBall.parent;
+        CCSprite *explosion = (CCSprite *)[CCBReader load:@"Explosion"];
+        explosion.position = movingBall.position;
+        [_alreadyPlaced addChild:explosion];
         [movingBall removeFromParent];
         bool noMovingBallsLeft = true;
         bool noStationaryBallsLeft = true;

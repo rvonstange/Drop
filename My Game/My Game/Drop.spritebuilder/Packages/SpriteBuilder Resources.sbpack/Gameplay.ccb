@@ -1160,8 +1160,8 @@
 												<string>Position</string>
 												<key>value</key>
 												<array>
-													<real>502.8712158203125</real>
-													<real>51.23089599609375</real>
+													<real>503.8709716796875</real>
+													<real>23.324436187744141</real>
 													<integer>0</integer>
 													<integer>0</integer>
 													<integer>0</integer>
@@ -1243,6 +1243,8 @@
 												<array/>
 											</dict>
 										</array>
+										<key>selected</key>
+										<true/>
 									</dict>
 								</array>
 								<key>customClass</key>
@@ -1335,7 +1337,7 @@
 										<string>Position</string>
 										<key>value</key>
 										<array>
-											<real>-344</real>
+											<real>-343</real>
 											<real>0.0</real>
 											<integer>0</integer>
 											<integer>0</integer>
@@ -1374,7 +1376,7 @@
 										<key>value</key>
 										<array>
 											<real>1.0002560615539551</real>
-											<real>1.0820143222808838</real>
+											<real>1.3304697275161743</real>
 											<false/>
 											<integer>0</integer>
 										</array>
@@ -1386,8 +1388,8 @@
 										<string>Color3</string>
 										<key>value</key>
 										<array>
-											<real>0.40000000596046448</real>
 											<real>0.0</real>
+											<real>0.20000000298023224</real>
 											<real>0.80000001192092896</real>
 											<real>1</real>
 										</array>
@@ -1402,8 +1404,16 @@
 											<real>0.0</real>
 											<real>0.0</real>
 											<real>0.0</real>
-											<real>1</real>
+											<real>0.30000001192092896</real>
 										</array>
+									</dict>
+									<dict>
+										<key>name</key>
+										<string>endOpacity</string>
+										<key>type</key>
+										<string>Float</string>
+										<key>value</key>
+										<real>0.30000001192092896</real>
 									</dict>
 									<dict>
 										<key>name</key>
@@ -1688,8 +1698,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
