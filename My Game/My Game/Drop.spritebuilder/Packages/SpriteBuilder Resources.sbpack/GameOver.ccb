@@ -137,7 +137,7 @@
 									<key>name</key>
 									<string>visible</string>
 									<key>time</key>
-									<real>1.0333333015441895</real>
+									<real>0.53333336114883423</real>
 									<key>type</key>
 									<integer>1</integer>
 									<key>value</key>
@@ -277,7 +277,7 @@
 									<key>name</key>
 									<string>visible</string>
 									<key>time</key>
-									<real>1.0333333015441895</real>
+									<real>0.53333336114883423</real>
 									<key>type</key>
 									<integer>1</integer>
 									<key>value</key>
@@ -525,7 +525,7 @@
 									<key>name</key>
 									<string>visible</string>
 									<key>time</key>
-									<real>1.0333333015441895</real>
+									<real>0.53333336114883423</real>
 									<key>type</key>
 									<integer>1</integer>
 									<key>value</key>
@@ -892,7 +892,7 @@
 									<key>name</key>
 									<string>visible</string>
 									<key>time</key>
-									<real>1.0333333015441895</real>
+									<real>0.53333336114883423</real>
 									<key>type</key>
 									<integer>1</integer>
 									<key>value</key>
@@ -1310,8 +1310,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -1367,7 +1365,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.2666666507720947</real>
+			<real>1.5</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

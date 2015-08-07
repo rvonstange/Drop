@@ -95,7 +95,7 @@ static int levelNum;
 -(void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
 
 // This chunk was used to stop items from overlapping, but after testing the game, I found that users quickly became annoyed
-// due to the imperfections with triangles. Therefore I eliminated this feature and the users seemed most satisfied.
+// due to the imperfections with triangles. Therefore I eliminated this feature and the users seemed more satisfied with the gameplay.
 //
 //    for (int i = 0; i <_items.children.count; i++){
 //        if (_temp != _items.children[i]) {
@@ -109,10 +109,18 @@ static int levelNum;
     
             _temp.position = original;
     }
-    //Currently items can be placed on top of stationary balls. So far have not been sucessful in stopping this from occuring.
+    //Stops items from being placed on stationary balls
     for (int j = 0; j < _sballs.children.count; j++) {
         CCNode * _tempBall = _sballs.children[j];
         if (CGRectIntersectsRect([_tempBall boundingBox], [_temp boundingBox])) {
+            _temp.position = original;
+            break;
+        }
+    }
+    //Stops items from being placed on dynamic pieces
+    for (int i = 0; i < _dynamicItems.children.count; i++) {
+        CCNode * _dItem = _dynamicItems.children[i];
+        if (CGRectIntersectsRect([_dItem boundingBox], [_temp boundingBox])) {
             _temp.position = original;
             break;
         }
@@ -169,7 +177,8 @@ static int levelNum;
     [parent addChild:explosion];
     [doubleHit removeFromParent];
     [parent addChild:sBall];
-    [self ballRemoval:ball];
+    [ball removeFromParent];
+    //[self ballRemoval:ball];
     
 }
 
