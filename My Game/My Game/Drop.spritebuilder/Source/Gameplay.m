@@ -66,6 +66,11 @@ static int levelNum;
     _physicsNode.collisionDelegate = self;
     
     dropClicked = false;
+    
+    NSTimer *t = [NSTimer scheduledTimerWithTimeInterval: 3.0
+                                                  target: self
+                                                selector:@selector(gameOverCheck)
+                                                userInfo: nil repeats:YES];
         
 }
 
@@ -290,6 +295,25 @@ static int levelNum;
     self.userInteractionEnabled = FALSE;
     CCScene *gameOver = [CCBReader loadAsScene:@"GameOverScene"];
     [_contentNode addChild:gameOver];
+}
+
+- (void) gameOverCheck {
+    CCNode *mainBallParent = _mainBall.parent;
+    bool noMovingBallsLeft = true;
+    bool noStationaryBallsLeft = true;
+    for (int i = 0; i < _sballs.children.count; i++) {
+        CCNode *temp = _sballs.children[i];
+        if (temp.physicsBody.type == CCPhysicsBodyTypeDynamic) {
+            noMovingBallsLeft = false;
+        }
+        if (temp.physicsBody.type == CCPhysicsBodyTypeStatic) {
+            noStationaryBallsLeft = false;
+        }
+    }
+    if (noMovingBallsLeft && !noStationaryBallsLeft && (mainBallParent.children.count == 0)) {
+        [self gameOver];
+    }
+
 }
 
 
