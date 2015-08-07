@@ -161,6 +161,7 @@ static int levelNum;
     [parent addChild:explosion];
     [doubleHit removeFromParent];
     [parent addChild:sBall];
+    [self ballRemoval:ball];
     
 }
 
@@ -173,12 +174,8 @@ static int levelNum;
 }
 
 -(void)ballRemoval:(CCNode *)movingBall {
-    CCNode *mainBallParent = _mainBall.parent;
-    [movingBall removeFromParent];
-    if (mainBallParent.children.count == 1) {
-        return;
-    }
-    else {
+        CCNode *mainBallParent = _mainBall.parent;
+        [movingBall removeFromParent];
         bool noMovingBallsLeft = true;
         bool noStationaryBallsLeft = true;
         for (int i = 0; i < _sballs.children.count; i++) {
@@ -190,10 +187,9 @@ static int levelNum;
                 noStationaryBallsLeft = false;
             }
         }
-        if (noMovingBallsLeft && !noStationaryBallsLeft) {
+        if (noMovingBallsLeft && !noStationaryBallsLeft && (mainBallParent.children.count == 0)) {
             [self gameOver];
         }
-    }
 }
 
 - (void)gameOver {
@@ -205,7 +201,6 @@ static int levelNum;
 
 
 - (void)ballCollision:(CCNode *)stationaryBall {
-    CCLOG(@"I am here but I should not beeeeeee");
     bool noBallsLeft = true;
     Ball *movingBall = (Ball *)[CCBReader load:@"Ball"];
     movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
