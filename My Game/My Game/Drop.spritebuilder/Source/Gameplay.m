@@ -86,14 +86,18 @@ static int levelNum;
 }
 
 -(void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    for (int i = 0; i <_items.children.count; i++){
-        if (_temp != _items.children[i]) {
-            if (CGRectIntersectsRect([_items.children[i] boundingBox], [_temp boundingBox])) {
-                _temp.position = original;
-                break;
-            }
-        }
-    }
+
+// This chunk was used to stop items from overlapping, but after testing the game, I found that users quickly became annoyed
+// due to the imperfections with triangles. Therefore I eliminated this feature and the users seemed most satisfied.
+//
+//    for (int i = 0; i <_items.children.count; i++){
+//        if (_temp != _items.children[i]) {
+//            if (CGRectIntersectsRect([_items.children[i] boundingBox], [_temp boundingBox])) {
+//                _temp.position = original;
+//                break;
+//            }
+//        }
+//    }
     if (!CGRectContainsRect([_levelNode boundingBox], [_temp boundingBox])) {
     
             _temp.position = original;
@@ -109,6 +113,23 @@ static int levelNum;
 
 }
 
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair itemToBreak:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    
+    [[_physicsNode space] addPostStepBlock:^{
+        [self breakItem:nodeA];
+    } key:nodeA];
+    
+}
+
+- (void) breakItem: (CCNode *) itemToBreak {
+    CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"BreakItem"];
+    explosion.autoRemoveOnFinish = TRUE;
+    explosion.position = itemToBreak.position;
+    [itemToBreak.parent addChild:explosion];
+    [itemToBreak removeFromParent];
+    
+}
+
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair stationaryBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
 
     
@@ -116,6 +137,23 @@ static int levelNum;
         [self ballCollision:nodeA];
     } key:nodeA];
     
+}
+
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair doubleHit:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    
+    CCLOG(@"I am here too");
+    [[_physicsNode space] addPostStepBlock:^{
+        [self doubleHitCollision:nodeA];
+    } key:nodeA];
+    
+}
+
+- (void)doubleHitCollision:(CCNode *)doubleHit {
+    StationaryBall *sBall = (StationaryBall *)[CCBReader load:@"StationaryBall"];
+    sBall.physicsBody.type = CCPhysicsBodyTypeStatic;
+    sBall.position = doubleHit.position;
+    [doubleHit.parent addChild:sBall];
+    [doubleHit removeFromParent];
 }
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair ground:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
@@ -159,6 +197,7 @@ static int levelNum;
 
 
 - (void)ballCollision:(CCNode *)stationaryBall {
+    CCLOG(@"I am here but I should not beeeeeee");
     bool noBallsLeft = true;
     Ball *movingBall = (Ball *)[CCBReader load:@"Ball"];
     movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;

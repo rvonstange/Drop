@@ -80,8 +80,6 @@
 		</dict>
 		<key>Random pictures</key>
 		<dict>
-			<key>isDirty</key>
-			<true/>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
@@ -176,8 +174,6 @@
 		</dict>
 		<key>object_physics-game-ice</key>
 		<dict>
-			<key>isDirty</key>
-			<true/>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
