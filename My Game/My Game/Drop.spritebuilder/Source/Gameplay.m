@@ -11,6 +11,7 @@
 #import "StationaryBall.h"
 #import "Ball.h"
 #import "ExplodingBall.h"
+#import "ElasticBall.h"
 
 static int levelNum;
 
@@ -283,8 +284,27 @@ static int levelNum;
     [eBall removeFromParent];
 }
 
+//These next two functions are used for Stationary Elastic Ball collisions
+- (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair SElasticBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    
+    if (dropClicked) {
+        [[_physicsNode space] addPostStepBlock:^{
+            [self SElasticBallCollision:nodeA];
+        } key:nodeA];
+    }
+}
 
-//The next two functions are used for ending the level
+
+- (void)SElasticBallCollision:(CCNode *)SElasticBall {
+    ElasticBall *movingBall = (ElasticBall *) [CCBReader load:@"ElasticBall"];
+    movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
+    movingBall.position = SElasticBall.position;
+    [SElasticBall.parent addChild:movingBall];
+    [SElasticBall removeFromParent];
+}
+
+
+//The next three functions are used for ending the level
 - (void)levelComplete {
     self.userInteractionEnabled = FALSE;
     CCScene *moveToNextLevel = [CCBReader loadAsScene:@"MoveToNextLevel"];
