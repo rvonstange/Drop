@@ -251,6 +251,12 @@ static int levelNum;
     [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
 }
 
+- (void)menu {
+    //Go to level select
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"LevelSelection"]];
+}
+
+
 -(void)drop {
     _mainBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
     dropClicked = true;
