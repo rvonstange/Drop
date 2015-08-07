@@ -79,7 +79,7 @@
 								<key>value</key>
 								<array>
 									<real>270</real>
-									<real>229</real>
+									<real>253</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -107,6 +107,8 @@
 								<string>StationaryBall.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -140,8 +142,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>206</real>
-									<real>170</real>
+									<real>207</real>
+									<real>184</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -792,7 +794,7 @@
 								<key>value</key>
 								<array>
 									<real>183</real>
-									<real>254</real>
+									<real>260</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1138,7 +1140,7 @@
 								<key>value</key>
 								<array>
 									<real>96</real>
-									<real>254</real>
+									<real>260</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1390,7 +1392,7 @@
 								<key>value</key>
 								<array>
 									<real>221.5</real>
-									<real>283.5</real>
+									<real>289.5</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1464,8 +1466,6 @@
 								<array/>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

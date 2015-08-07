@@ -10,6 +10,7 @@
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "StationaryBall.h"
 #import "Ball.h"
+#import "ExplodingBall.h"
 
 static int levelNum;
 
@@ -155,6 +156,26 @@ static int levelNum;
 }
 
 
+- (void)ballCollision:(CCNode *)stationaryBall {
+    bool noBallsLeft = true;
+    Ball *movingBall = (Ball *)[CCBReader load:@"Ball"];
+    movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
+    movingBall.position = stationaryBall.position;
+    [stationaryBall.parent addChild:movingBall];
+    [stationaryBall removeFromParent];
+    for (int i = 0; i < _sballs.children.count; i++) {
+        CCNode *temp = _sballs.children[i];
+        if (temp.physicsBody.type == CCPhysicsBodyTypeStatic) {
+            noBallsLeft = false;
+        }
+    }
+    if (noBallsLeft) {
+        [self levelComplete];
+    }
+    
+}
+
+
 
 - (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair doubleHit:(CCNode *)nodeA wildcard:(Ball *)nodeB {
     
@@ -212,37 +233,57 @@ static int levelNum;
         }
 }
 
-- (void)gameOver {
-    self.userInteractionEnabled = FALSE;
-    CCScene *gameOver = [CCBReader loadAsScene:@"GameOverScene"];
-    [_contentNode addChild:gameOver];
-}
 
-
-
-- (void)ballCollision:(CCNode *)stationaryBall {
-    bool noBallsLeft = true;
-    Ball *movingBall = (Ball *)[CCBReader load:@"Ball"];
-    movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
-    movingBall.position = stationaryBall.position;
-    [stationaryBall.parent addChild:movingBall];
-    [stationaryBall removeFromParent];
-    for (int i = 0; i < _sballs.children.count; i++) {
-        CCNode *temp = _sballs.children[i];
-        if (temp.physicsBody.type == CCPhysicsBodyTypeStatic) {
-            noBallsLeft = false;
-        }
-    }
-    if (noBallsLeft) {
-        [self levelComplete];
-    }
+//These next two functions are used for Stationary Exploding Ball collisions
+- (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair SEBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    
+    
+    [[_physicsNode space] addPostStepBlock:^{
+        [self SEBallCollision:nodeA];
+    } key:nodeA];
     
 }
+
+
+- (void)SEBallCollision:(CCNode *)SEBall {
+    ExplodingBall *movingBall = (ExplodingBall *)[CCBReader load:@"ExplodingBall"];
+    movingBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
+    movingBall.position = SEBall.position;
+    [SEBall.parent addChild:movingBall];
+    [SEBall removeFromParent];
+}
+
+//These next two functions are used for exploding ball collisions
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair explodingBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    
+    
+    [[_physicsNode space] addPostStepBlock:^{
+        [self ballExplode:nodeA withOtherNode:nodeB];
+    } key:nodeA];
+    
+}
+
+
+- (void)ballExplode:(CCNode *)eBall withOtherNode: (CCNode *) other {
+    CCSprite *explosion = (CCSprite *)[CCBReader load:@"ExplosionPurple"];
+    explosion.position = other.position;
+    [_alreadyPlaced addChild:explosion];
+    [other removeFromParent];
+    [eBall removeFromParent];
+}
+
+
 
 - (void)levelComplete {
     self.userInteractionEnabled = FALSE;
     CCScene *moveToNextLevel = [CCBReader loadAsScene:@"MoveToNextLevel"];
     [_contentNode addChild:moveToNextLevel];
+}
+
+- (void)gameOver {
+    self.userInteractionEnabled = FALSE;
+    CCScene *gameOver = [CCBReader loadAsScene:@"GameOverScene"];
+    [_contentNode addChild:gameOver];
 }
 
 - (void)retry {
