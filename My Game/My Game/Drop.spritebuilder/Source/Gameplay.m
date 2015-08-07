@@ -148,9 +148,11 @@ static int levelNum;
 
 - (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair doubleHit:(CCNode *)nodeA wildcard:(Ball *)nodeB {
     
-    [[_physicsNode space] addPostStepBlock:^{
-        [self doubleHitCollision:nodeA withOtherBall: nodeB];
-    } key:nodeA];
+    if (dropClicked) {
+        [[_physicsNode space] addPostStepBlock:^{
+            [self doubleHitCollision:nodeA withOtherBall: nodeB];
+        } key:nodeA];
+    }
     
 }
 
