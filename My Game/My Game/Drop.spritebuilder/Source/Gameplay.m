@@ -14,6 +14,7 @@
 #import "ElasticBall.h"
 
 static int levelNum;
+static int maxLevel;
 
 @implementation Gameplay {
 
@@ -41,6 +42,14 @@ static int levelNum;
 
 +(int)getLevel {
     return levelNum;
+}
+
++(void)setMaxLevel: (int) num {
+    maxLevel = num;
+}
+
++(int)getMaxLevel {
+    return maxLevel;
 }
 
 

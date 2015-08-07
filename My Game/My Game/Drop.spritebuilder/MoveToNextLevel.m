@@ -17,6 +17,10 @@
 }
 - (void)nextLevel {
     int newLevel = [Gameplay getLevel] + 1;
+//    int maxLevel = [Gameplay getMaxLevel];
+//    if (newLevel > maxLevel) {
+//        [Gameplay setMaxLevel:newLevel];
+//    }
     [Gameplay setLevel: newLevel];
     CCScene *gamePlay = [CCBReader loadAsScene:@"Gameplay"];
     [[CCDirector sharedDirector] replaceScene:gamePlay];

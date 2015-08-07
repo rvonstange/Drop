@@ -12,5 +12,7 @@
 
 +(void)setLevel: (int) num;
 +(int)getLevel;
++(void)setMaxLevel: (int) num;
++(int)getMaxLevel;
 
 @end
