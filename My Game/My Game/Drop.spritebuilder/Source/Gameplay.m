@@ -304,7 +304,9 @@ static int levelNum;
     for (int i = 0; i < _sballs.children.count; i++) {
         CCNode *temp = _sballs.children[i];
         if (temp.physicsBody.type == CCPhysicsBodyTypeDynamic) {
-            noMovingBallsLeft = false;
+            if ((temp.physicsBody.velocity.x > 0.0) || (temp.physicsBody.velocity.y > 0.0)) {
+                noMovingBallsLeft = false;
+            }
         }
         if (temp.physicsBody.type == CCPhysicsBodyTypeStatic) {
             noStationaryBallsLeft = false;
