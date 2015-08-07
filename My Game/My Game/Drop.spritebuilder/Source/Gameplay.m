@@ -24,6 +24,7 @@ static int levelNum;
     CCNode *_items;
     CCNode *_temp;
     CCNode *_sballs;
+    CCNode *_dynamicItems;
     CGPoint original;
     bool dropClicked;
     NSString *currentLevel;
@@ -55,7 +56,10 @@ static int levelNum;
     CCNode *level = levelScene.children[0];
     _items = level.children[1];
     _sballs = level.children[0];
-    
+    if (level.children.count > 3) {
+        _dynamicItems = level.children[3];
+    }
+
     _physicsNode.collisionDelegate = self;
     
     dropClicked = false;
@@ -234,6 +238,11 @@ static int levelNum;
 -(void)drop {
     _mainBall.physicsBody.type = CCPhysicsBodyTypeDynamic;
     dropClicked = true;
+    for (int i = 0; i < _dynamicItems.children.count; i++) {
+        CCNode *temp = _dynamicItems.children[i];
+        temp.physicsBody.type = CCPhysicsBodyTypeDynamic;
+        
+    }
 }
 
 
