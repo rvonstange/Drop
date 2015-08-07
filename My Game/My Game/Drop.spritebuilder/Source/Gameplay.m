@@ -129,6 +129,9 @@ static int levelNum;
 
 }
 
+
+
+//Breakable part collisions
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair itemToBreak:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     
     [[_physicsNode space] addPostStepBlock:^{
@@ -146,6 +149,8 @@ static int levelNum;
     
 }
 
+
+//Stationary Ball Collisions
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair stationaryBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
 
     
@@ -176,7 +181,7 @@ static int levelNum;
 }
 
 
-
+//Double Hit Ball Collisions
 - (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair doubleHit:(CCNode *)nodeA wildcard:(Ball *)nodeB {
     
     if (dropClicked) {
@@ -203,6 +208,7 @@ static int levelNum;
     
 }
 
+//Ground collisions to eliminate anything that hits the ground
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair ground:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     
     [[_physicsNode space] addPostStepBlock:^{
@@ -237,11 +243,11 @@ static int levelNum;
 //These next two functions are used for Stationary Exploding Ball collisions
 - (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair SEBall:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     
-    
-    [[_physicsNode space] addPostStepBlock:^{
-        [self SEBallCollision:nodeA];
-    } key:nodeA];
-    
+    if (dropClicked) {
+        [[_physicsNode space] addPostStepBlock:^{
+            [self SEBallCollision:nodeA];
+        } key:nodeA];
+    }
 }
 
 
@@ -273,7 +279,7 @@ static int levelNum;
 }
 
 
-
+//The next two functions are used for ending the level
 - (void)levelComplete {
     self.userInteractionEnabled = FALSE;
     CCScene *moveToNextLevel = [CCBReader loadAsScene:@"MoveToNextLevel"];
@@ -286,6 +292,8 @@ static int levelNum;
     [_contentNode addChild:gameOver];
 }
 
+
+//These three functions are for the buttons
 - (void)retry {
     // reload this level
     dropClicked = false;
