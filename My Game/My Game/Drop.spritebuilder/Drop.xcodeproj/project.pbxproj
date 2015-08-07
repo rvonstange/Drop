@@ -105,6 +105,7 @@
 		D4D57B191B75183100C914A7 /* SEBall.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57B181B75183100C914A7 /* SEBall.m */; };
 		D4D57B1C1B75525000C914A7 /* ElasticBall.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57B1B1B75525000C914A7 /* ElasticBall.m */; };
 		D4D57B1F1B75525E00C914A7 /* SElasticBall.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57B1E1B75525E00C914A7 /* SElasticBall.m */; };
+		D4D57B221B755AC600C914A7 /* GameDone.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D57B211B755AC600C914A7 /* GameDone.m */; };
 		D4DB0BE71A9C7E69008CFBF6 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */; };
 /* End PBXBuildFile section */
 
@@ -255,6 +256,8 @@
 		D4D57B1B1B75525000C914A7 /* ElasticBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticBall.m; sourceTree = "<group>"; };
 		D4D57B1D1B75525E00C914A7 /* SElasticBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SElasticBall.h; sourceTree = "<group>"; };
 		D4D57B1E1B75525E00C914A7 /* SElasticBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SElasticBall.m; sourceTree = "<group>"; };
+		D4D57B201B755AC600C914A7 /* GameDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDone.h; sourceTree = "<group>"; };
+		D4D57B211B755AC600C914A7 /* GameDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDone.m; sourceTree = "<group>"; };
 		D4DB0BE61A9C7E69008CFBF6 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 		D4DB0BE81A9C7E89008CFBF6 /* Gameplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gameplay.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -507,6 +510,8 @@
 				D4D57B0F1B74415B00C914A7 /* Breakable.m */,
 				D4D57AF91B71A50400C914A7 /* MoveToNextLevel.h */,
 				D4D57AFA1B71A50400C914A7 /* MoveToNextLevel.m */,
+				D4D57B201B755AC600C914A7 /* GameDone.h */,
+				D4D57B211B755AC600C914A7 /* GameDone.m */,
 				D4D57B051B72E7C500C914A7 /* GameOver.h */,
 				D4D57B061B72E7C500C914A7 /* GameOver.m */,
 				D4D57AFF1B71BC3400C914A7 /* LevelSelection.h */,
@@ -924,6 +929,7 @@
 				D4DB0BE71A9C7E69008CFBF6 /* Gameplay.m in Sources */,
 				D4D57B041B72B49800C914A7 /* Ground.m in Sources */,
 				D4D57B101B74415B00C914A7 /* Breakable.m in Sources */,
+				D4D57B221B755AC600C914A7 /* GameDone.m in Sources */,
 				D4D57B1C1B75525000C914A7 /* ElasticBall.m in Sources */,
 				D4D57B191B75183100C914A7 /* SEBall.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,

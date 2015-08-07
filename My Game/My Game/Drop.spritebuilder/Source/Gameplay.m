@@ -308,6 +308,9 @@ static int levelNum;
 - (void)levelComplete {
     self.userInteractionEnabled = FALSE;
     CCScene *moveToNextLevel = [CCBReader loadAsScene:@"MoveToNextLevel"];
+    if (levelNum == 20) {
+        moveToNextLevel = [CCBReader loadAsScene:@"GameDone"];
+    }
     [_contentNode addChild:moveToNextLevel];
 }
 
