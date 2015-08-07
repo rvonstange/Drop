@@ -59,6 +59,7 @@ static int levelNum;
     _physicsNode.collisionDelegate = self;
     
     dropClicked = false;
+        
 }
 
 
@@ -139,21 +140,28 @@ static int levelNum;
     
 }
 
-- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair doubleHit:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+
+
+- (void)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair doubleHit:(CCNode *)nodeA wildcard:(Ball *)nodeB {
     
-    CCLOG(@"I am here too");
     [[_physicsNode space] addPostStepBlock:^{
-        [self doubleHitCollision:nodeA];
+        [self doubleHitCollision:nodeA withOtherBall: nodeB];
     } key:nodeA];
     
 }
 
-- (void)doubleHitCollision:(CCNode *)doubleHit {
+- (void)doubleHitCollision:(CCNode *)doubleHit withOtherBall: (CCNode *) ball {
     StationaryBall *sBall = (StationaryBall *)[CCBReader load:@"StationaryBall"];
+    CCNode * parent = doubleHit.parent;
     sBall.physicsBody.type = CCPhysicsBodyTypeStatic;
     sBall.position = doubleHit.position;
-    [doubleHit.parent addChild:sBall];
+    CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"DoubleBallChange"];
+    explosion.autoRemoveOnFinish = TRUE;
+    explosion.position = doubleHit.position;
+    [parent addChild:explosion];
     [doubleHit removeFromParent];
+    [parent addChild:sBall];
+    
 }
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair ground:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
